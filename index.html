@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chloe's Charm</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+    <link
+      rel="shortcut icon"
+      href="logo/icon2/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Josefin+Slab:wght@300;400;600&family=Roboto+Slab:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="logo">
+          <img src="logo/logo-cropped.png" alt="logo" />
+        </div>
+
+        <ul>
+          <li><i class="fa-solid fa-user"></i></li>
+          <li><i class="fa-solid fa-bag-shopping"></i></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-upper">
+          <span><i class="fa-solid fa-language"></i></span>
+          <h1>CHLOE'S CHARM</h1>
+          <div class="searchbar">
+            <span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input
+              placeholder="Search"
+              type="search"
+              autocomplete="off"
+              name="search"
+              id="search"
+            />
+            <span>Search</span>
+          </div>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="">New!</a></li>
+            <li><a href="">Bras</a></li>
+            <li><a href="">Panties</a></li>
+            <li><a href="">Lingerie</a></li>
+            <li><a href="">Sleep</a></li>
+            <li><a href="">Swim</a></li>
+            <li><a href="">Apparel</a></li>
+            <li><a href="">Beauty</a></li>
+            <li><a href="">Accessories</a></li>
+            <li><a href="">Sale</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="" method="post" novalidate>
+        <h3>Create an Account</h3>
+        <div class="input-group">
+          <label for="fName">First Name *</label>
+          <input placeholder="" required type="text" name="fName" id="fName" />
+        </div>
+        <div class="input-group">
+          <label for="lName">Last Name *</label>
+          <input placeholder="" required type="text" name="lName" id="lName" />
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address *</label>
+          <input placeholder="" required type="email" name="email" id="email" />
+        </div>
+        <div class="input-checkbox">
+          <ul>
+            <li>
+              <label for="eightChar">
+                <input
+                  type="checkbox"
+                  disabled
+                  name="eightChar"
+                  id="eightChar"
+                />
+                At least 8 characters</label
+              >
+            </li>
+            <li>
+              <label for="uppercase">
+                <input
+                  type="checkbox"
+                  disabled
+                  name="uppercase"
+                  id="uppercase"
+                />
+                At least 1 uppercase</label
+              >
+            </li>
+            <li>
+              <label for="lowercase">
+                <input
+                  type="checkbox"
+                  disabled
+                  name="lowercase"
+                  id="lowercase"
+                />
+                At lease 1 lowercase</label
+              >
+            </li>
+            <li>
+              <label for="a-number">
+                <input type="checkbox" disabled name="a-number" id="a-number" />
+                At least 1 number</label
+              >
+            </li>
+            <li>
+              <label for="repetition">
+                <input
+                  type="checkbox"
+                  disabled
+                  name="repetition"
+                  id="repetition"
+                />
+                Don't repeat or use consecutive numbers or letters</label
+              >
+            </li>
+            <li>
+              <label for="usingnames">
+                <input
+                  type="checkbox"
+                  disabled
+                  name="usingnames"
+                  id="usingnames"
+                />
+                Don't use First or Last Name</label
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="input-group">
+          <label for="pwd">Create Password *</label>
+          <span class="pwdErrorMsg errorMsg"></span>
+          <input placeholder="" required type="password" name="pwd" id="pwd" />
+        </div>
+        <div class="input-group">
+          <meter
+            id="pwdMeter"
+            min="0"
+            low="1"
+            high="2"
+            max="3"
+            optimum="3"
+            value="0"
+          ></meter>
+          <label for="pwdMeter" id="pwdLabel"></label>
+        </div>
+        <div class="input-group">
+          <label for="phonenum">Phone Number</label>
+          <input placeholder="" type="tel" name="phonenum" id="phonenum" />
+        </div>
+        <div class="input-group">
+          <p class="terms-of-service">
+            By Selecting "Create Account," I agree to the
+            <a href="">Terms of Use</a>, <a href="">Privacy Policy</a> and
+            <a href="">Financial Incentives Privacy Notice</a>.
+          </p>
+        </div>
+        <div class="input-group">
+          <button type="submit">Create Account</button>
+        </div>
+        <div class="input-group">
+          <p class="sign-in">HAVE AN ACCOUNT ALREADY? <a href="">SIGN IN</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -39,7 +39,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* css rest */
+/* general style */
 
 :root {
   --bg-color: #f7f7f8;
@@ -248,9 +248,10 @@ h3 {
   margin-bottom: min(2vw, 1rem);
 }
 
-.input-group {
+.input-group:not(.input-group.pass),
+.input-checkbox {
   position: relative;
-  margin-bottom: min(2.5vw, 20px);
+  margin-bottom: clamp(20px, 2.5vw, 30px);
 }
 
 .input-group input:not(input[type="checkbox"]) {
@@ -267,7 +268,6 @@ h3 {
   font-size: 0.7rem;
   color: var(--text-color);
   gap: 5px 20px;
-  margin-bottom: 20px;
 }
 
 .input-checkbox > ul > li > label {
@@ -327,14 +327,41 @@ h3 {
   transition: transform 0.3s cubic-bezier(0.06, 0.4, 0.55, 1.25);
 }
 
-.input-group:focus-within label {
-  transform: translateY(-8px);
+.input-group > .label.labelUp {
+  transform: translateY(-10px);
   text-transform: uppercase;
   font-size: 0.8rem;
   background-color: var(--bg-color);
   color: var(--text-color);
   border-radius: 4px;
   font-weight: 600;
+}
+
+.label::after {
+  content: " *";
+}
+
+.errorMsg {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(0px, -10px);
+  font-family: var(--font-josefin-slab);
+  font-weight: 600;
+  color: red;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.06, 0.4, 0.55, 1.25);
+}
+
+.errorMsg.unfocus {
+  transform: translate(4px, 10px);
+  background-color: transparent;
+  font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .input-group .terms-of-service {

@@ -77,15 +77,18 @@
       <form action="" method="post" novalidate>
         <h3>Create an Account</h3>
         <div class="input-group">
-          <label for="fName">First Name *</label>
+          <label class="label" for="fName">First Name</label>
+          <span class="fNameErrorMsg errorMsg"></span>
           <input placeholder="" required type="text" name="fName" id="fName" />
         </div>
         <div class="input-group">
-          <label for="lName">Last Name *</label>
+          <label class="label" for="lName">Last Name</label>
+          <span class="lNameErrorMsg errorMsg"></span>
           <input placeholder="" required type="text" name="lName" id="lName" />
         </div>
         <div class="input-group">
-          <label for="email">Email Address *</label>
+          <label class="label" for="email">Email Address</label>
+          <span class="emailErrorMsg errorMsg"></span>
           <input placeholder="" required type="email" name="email" id="email" />
         </div>
         <div class="input-checkbox">
@@ -153,8 +156,8 @@
             </li>
           </ul>
         </div>
-        <div class="input-group">
-          <label for="pwd">Create Password *</label>
+        <div class="input-group pass">
+          <label class="label" for="pwd">Create Password </label>
           <span class="pwdErrorMsg errorMsg"></span>
           <input placeholder="" required type="password" name="pwd" id="pwd" />
         </div>
@@ -168,10 +171,11 @@
             optimum="3"
             value="0"
           ></meter>
-          <label for="pwdMeter" id="pwdLabel"></label>
+          <label for="pwdMeter" id="pwdMeterLabel"></label>
         </div>
         <div class="input-group">
           <label for="phonenum">Phone Number</label>
+          <span class="nameErrorMsg errorMsg"></span>
           <input placeholder="" type="tel" name="phonenum" id="phonenum" />
         </div>
         <div class="input-group">

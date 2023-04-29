@@ -248,7 +248,7 @@ h3 {
   margin-bottom: min(2vw, 1rem);
 }
 
-.input-group:not(.input-group.pass),
+.input-group,
 .input-checkbox {
   position: relative;
   margin-bottom: clamp(20px, 2.5vw, 30px);
@@ -362,6 +362,24 @@ h3 {
   background-color: transparent;
   font-size: 1rem;
   text-transform: capitalize;
+}
+.input-group.meter {
+  position: relative;
+  display: none;
+  margin-top: -25px;
+}
+.input-group > meter {
+  width: 50%;
+  height: 12px;
+}
+
+.input-group.meter label {
+  font-size: 0.8rem;
+  font-family: var(--font-roboto);
+  color: var(--text-color);
+
+  margin-top: -5px;
+  font-weight: 400;
 }
 
 .input-group .terms-of-service {

@@ -121,6 +121,7 @@ const pwdMeter = document.querySelector("#pwdMeter");
 const pwdMeterLabel = document.querySelector("#pwdMeterLabel");
 const pwdErrorMsg = document.querySelector(".pwdErrorMsg");
 const pwdLabel = document.querySelector('label[for="pwd"]');
+const meterGroup = document.querySelector(".input-group.meter");
 
 const eightCharPattern = /^.{8,}$/;
 const uppercasePattern = /[A-Z]/;
@@ -156,12 +157,12 @@ function validatePassword() {
   ) {
     if (pwdValue.length >= 12) {
       pwdMeter.value = 3;
-      pwdMeterLabel.textContent = "Strong";
+      pwdMeterLabel.textContent = "Strong Password";
       pwdLabel.style.display = "block";
       pwdErrorMsg.textContent = "";
     } else {
       pwdMeter.value = 2;
-      pwdMeterLabel.textContent = "Medium";
+      pwdMeterLabel.textContent = "Medium Password";
       pwdLabel.style.display = "block";
       pwdErrorMsg.textContent = "";
     }
@@ -169,7 +170,7 @@ function validatePassword() {
     pwdErrorMsg.textContent = "Please enter a valid password";
     if (pwdValue.length > 0) {
       pwdMeter.value = 1;
-      pwdMeterLabel.textContent = "Weak";
+      pwdMeterLabel.textContent = "Weak Password";
     } else {
       pwdMeter.value = 0;
       pwdMeterLabel.textContent = "";
@@ -177,7 +178,15 @@ function validatePassword() {
   }
 }
 
-pwd.addEventListener("input", validatePassword);
+pwd.addEventListener("input", () => {
+  validatePassword();
+
+  if (pwd.value !== "") {
+    meterGroup.style.display = "block";
+  } else {
+    meterGroup.style.display = "none";
+  }
+});
 
 pwd.addEventListener("blur", () => {
   if (pwd.value === "") {

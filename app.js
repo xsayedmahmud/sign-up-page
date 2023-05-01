@@ -1,7 +1,3 @@
-const form = document.querySelector("form");
-
-const phonenum = document.querySelector("#phonenum");
-
 //name validation below
 
 const fName = document.querySelector("#fName");
@@ -202,8 +198,6 @@ pwd.addEventListener("focus", () => {
   }
 });
 
-// helper function
-
 function checkNames(pwdValue, firstN, lastN) {
   pwdValue = pwdValue.toLowerCase();
   firstN = firstN.toLowerCase();
@@ -224,3 +218,93 @@ function checkNames(pwdValue, firstN, lastN) {
     return false;
   }
 }
+
+const togglePwd = document.querySelector(".togglePwd");
+const icon = document.querySelector(".togglePwd .fa-solid");
+
+function togglePassword() {
+  if (pwd.type === "password") {
+    pwd.type = "text";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  } else {
+    pwd.type = "password";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  }
+}
+
+togglePwd.addEventListener("click", togglePassword);
+
+// phone number validation below
+
+const phoneNum = document.querySelector("#phonenum");
+const phoneLabel = document.querySelector('label[for="phonenum"]');
+const phoneErrorMsg = document.querySelector(".phoneErrorMsg ");
+const phoneRegex = /^(88)?01[3-9]\d{8}$/;
+const allowedPattern = /^[0-9]$/;
+
+function validatePhone(phoneInput, phoneLabel, phoneErrorMsg) {
+  let phoneValue = phoneInput.value;
+  if (phoneValue === "") {
+    phoneLabel.style.display = "block";
+    // phoneErrorMsg.textContent = "Please enter a valid phone number";
+  } else if (!phoneRegex.test(phoneValue)) {
+    phoneErrorMsg.textContent = 'Valid phone number format: "01XXXXXXXXX"';
+    phoneLabel.style.display = "none";
+  } else {
+    phoneErrorMsg.textContent = "";
+    phoneLabel.style.display = "block";
+  }
+}
+
+phoneNum.addEventListener("input", () => {
+  if (phoneNum.value.length > 13) {
+    phoneNum.value = phoneNum.value.slice(0, 13);
+  }
+
+  if (!allowedPattern.test(phoneNum.value.slice(-1))) {
+    phoneNum.value = phoneNum.value.slice(0, -1);
+  }
+
+  validatePhone(phoneNum, phoneLabel, phoneErrorMsg);
+});
+
+phoneNum.addEventListener("blur", () => {
+  if (phoneNum.value === "") {
+    phoneLabel.classList.remove("labelUp");
+    // phoneErrorMsg.classList.add("unfocus");
+  }
+
+  validatePhone(phoneNum, phoneLabel, phoneErrorMsg);
+});
+
+phoneNum.addEventListener("focus", () => {
+  phoneLabel.classList.add("labelUp");
+
+  // if (phoneErrorMsg.classList.contains("unfocus")) {
+  //   phoneErrorMsg.classList.remove("unfocus");
+  // }
+});
+
+// form validation
+
+const form = document.querySelector("form");
+const showError = document.querySelector(".showError");
+
+form.addEventListener("submit", (e) => {
+  const fNMissing = fName.validity.valueMissing;
+  const lNMissing = lName.validity.valueMissing;
+  const eMissing = email.validity.valueMissing;
+  const pwdMissing = pwd.validity.valueMissing;
+
+  if (fNMissing && lNMissing && eMissing && pwdMissing) {
+    showError.style.visibility = "visible";
+    showError.textContent =
+      "Please fill in all the required fields marked with *";
+  } else {
+    showError.style.visibility = "hidden";
+  }
+
+  e.preventDefault();
+});

@@ -245,6 +245,13 @@ h3 {
   font-family: var(--font-josefin-slab);
   color: var(--heading-color);
   font-size: clamp(1.1rem, 2vw, 1.6rem);
+  /* margin-bottom: min(2vw, 1rem); */
+}
+
+.showError {
+  font-family: var(--font-josefin-slab);
+  font-weight: 600;
+  color: red;
   margin-bottom: min(2vw, 1rem);
 }
 
@@ -337,7 +344,7 @@ h3 {
   font-weight: 600;
 }
 
-.label::after {
+.label:not(label[for="phonenum"])::after {
   content: " *";
 }
 
@@ -380,6 +387,15 @@ h3 {
 
   margin-top: -5px;
   font-weight: 400;
+}
+
+.togglePwd {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  color: var(--cabaret-color);
+  cursor: pointer;
+  padding: 2px 6px;
 }
 
 .input-group .terms-of-service {
